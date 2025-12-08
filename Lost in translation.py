@@ -41,6 +41,6 @@ def main():
     
     with open("dict.json","w") as fd:
         json.dump(dict, fd, indent=2)
-  while true:
+while True:
     main()
 

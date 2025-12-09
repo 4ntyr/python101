@@ -1,7 +1,7 @@
 import json
 
-with open("dict.json", "r") as fd:
-    dict = json.load(fd)
+with open("dict.json", "r") as fp:
+    dict = json.load(fp)
 
 def search(input):
     if input in dict.keys():
@@ -42,10 +42,7 @@ def main():
         else:
             print("Somethings wrong.")
         
-        with open("dict.json","w") as fd:
-            json.dump(dict, fd, indent=2)
+        with open("dict.json","w") as fp:
+            json.dump(dict, fp, indent=2)
 
 main()
-
-
-

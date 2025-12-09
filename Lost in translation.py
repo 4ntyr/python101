@@ -27,23 +27,25 @@ def edit(german_word):
         dict[german_word] = english_word
 
 def main():
-    mode = str(input("Was willst du tun?: ")) # Add, Tranlate, Edit, X=Cancel
+    while True:
+        mode = str(input("Was willst du tun?: ")).lower() # Add, Translate, Edit, X=Cancel
 
-    if mode == "T":
-        input_buffer = input("Welches Wort?: ")
-        print(f"Die Übersetzung für {input_buffer} ist {search(input_buffer)}.")
-    elif mode == "A":
-        change(input("Welches DEUTSCHE Wort willst du hinzufügen?: "))
-    elif mode == "E":
-        edit(input("Die Übersetzung von welchem DEUTSCHEN Wort willst du ändern?: "))
-    elif mode == "X":
-        break
-    else:
-        print("Somethings wrong.")
-    
-    with open("dict.json","w") as fd:
-        json.dump(dict, fd, indent=2)
-while True:
-    main()
+        if mode == "t":
+            input_buffer = input("Welches Wort?: ")
+            print(f"Die Übersetzung für {input_buffer} ist {search(input_buffer)}.")
+        elif mode == "a":
+            change(input("Welches DEUTSCHE Wort willst du hinzufügen?: "))
+        elif mode == "e":
+            edit(input("Die Übersetzung von welchem DEUTSCHEN Wort willst du ändern?: "))
+        elif mode == "x":
+            break
+        else:
+            print("Somethings wrong.")
+        
+        with open("dict.json","w") as fd:
+            json.dump(dict, fd, indent=2)
+
+main()
+
 
 

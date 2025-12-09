@@ -27,7 +27,7 @@ def edit(german_word):
         dict[german_word] = english_word
 
 def main():
-    mode = str(input("Was willst du tun?: ")) # Add, Tranlate, Edit
+    mode = str(input("Was willst du tun?: ")) # Add, Tranlate, Edit, X=Cancel
 
     if mode == "T":
         input_buffer = input("Welches Wort?: ")
@@ -36,6 +36,8 @@ def main():
         change(input("Welches DEUTSCHE Wort willst du hinzufügen?: "))
     elif mode == "E":
         edit(input("Die Übersetzung von welchem DEUTSCHEN Wort willst du ändern?: "))
+    elif mode == "X":
+        break
     else:
         print("Somethings wrong.")
     
@@ -43,4 +45,5 @@ def main():
         json.dump(dict, fd, indent=2)
 while True:
     main()
+
 
